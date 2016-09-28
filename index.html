@@ -1,0 +1,299 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<meta name="description" content="Cours JavaScript donné aux étudiants de Master 2 à l'UBO'">
+	<meta name="author" content="Jean-François Le Foll">
+
+	<title>JavaScript</title>
+
+	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/theme/beige.css">
+
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="lib/css/zenburn.css">
+
+
+	<!-- Printing and PDF exports -->
+	<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section>
+				<h2>JavaScript</h2>
+				<p>
+					<small> <a href="http://jefflefoll.github.io" target="_blank">Jean-François Le Foll</a> / <a href="http://twitter.com/JeffLeFoll">@JeffLeFoll</a></small>
+				</p>
+			</section>
+
+			<section>
+				<ol>
+					<li>Présentation</li>
+					<li>Types de données</li>
+					<li>Les opérateurs</li>
+					<li>La coercition</li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ol>
+			</section>
+
+			<section>
+				<section>
+					<h2>Présentataion</h2>
+					<ul>
+						<li>Language de script orienté objet</li>
+						<li>Standar ECMAScript (ECMA-262)</li>
+						<li>Développé par Netscape en 1995</li>
+						<li>Rendre le HTML plus dynamique</li>
+					</ul>
+					<p>Le futur c'est maintenant, la dernière version est la ES6 mais ce n'est pas pour tout de suite.</p>
+				</section>
+
+				<section>
+					<ul>
+						<li>N'a <span style="color: red">STRICTEMENT</span> rien à voir avec Java</li>
+						<li>Non typé, dynamique, interprété, basé sur les <span style="color: blue">prototypes</span> et les <span style="color: blue">fonctions</span></li>
+						<li>Multi-paradigme : impératif / orienté objet / fonctionnel</li>
+					</ul>
+				</section>
+			</section>
+
+			<section>
+				<section>
+					<h2>Types de données</h2>
+					<p>En JS tous les types sont des Objets</p>
+				</section>
+
+				<section>
+					<h2>Types primitifs</h2>
+					<ul>
+						<li>boolean (true / false)</li>
+						<li>number (décimal / réel / héxa. / octale)</li>
+						<li>string</li>
+						<li>null</li>
+						<li>undefined</li>
+					</ul>
+				</section>
+				<section>
+					<h2>Objets fondamentaux</h2>
+					<ul>
+						<li>Function</li>
+						<li>Object</li>
+						<li>Array</li>
+						<li>RegExp</li>
+					</ul>
+				</section>
+				<section>
+					<h2>Values properties</h2>
+					<ul>
+						<li>NaN (Number.NaN)</li>
+						<li>Infinity</li>
+					</ul>
+				</section>
+			</section>
+
+			<section>
+				<section>
+					<h2>Les Opérateurs</h2>
+				</section>
+				<section>
+					<h2>Arithmétiques</h2>
+					<table>
+						<tbody>
+							<tr>
+								<th>Nom</th>
+								<th>Opérateur</th>
+							</tr>
+							<tr>
+								<td>addition / concaténation</td>
+								<td>+</td>
+							</tr>
+							<tr>
+								<td>soustraction</td>
+								<td>-</td>
+							</tr>
+							<tr>
+								<td>division</td>
+								<td>/</td>
+							</tr>
+							<tr>
+								<td>reste</td>
+								<td>%</td>
+							</tr>
+							<tr>
+								<td>multiplication</td>
+								<td>*</td>
+							</tr>
+							<tr>
+								<td>incrément</td>
+								<td>++</td>
+							</tr>
+							<tr>
+								<td>décrément</td>
+								<td>--</td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+				<section>
+					<h2>Affectation</h2>
+					<table>
+						<tbody>
+							<tr>
+								<th>Nom</th>
+								<th>Opérateur</th>
+								<th>Signification</th>
+							</tr>
+							<tr>
+								<td>Affectation</td>
+								<td>x = y</td>
+								<td>x = y</td>
+							</tr>
+							<tr>
+								<td>Affectation après addition</td>
+								<td>x += y</td>
+								<td>x = x + y</td>
+							</tr>
+							<tr>
+								<td>Affectation après soustraction</td>
+								<td>x -= y</td>
+								<td>x = x - y</td>
+							</tr>
+							<tr>
+								<td>Affectation après multiplication</td>
+								<td>x *= y</td>
+								<td>x = x * y</td>
+							</tr>
+							<tr>
+								<td>Affectation après division</td>
+								<td>x /= y</td>
+								<td>x = x / y</td>
+							</tr>
+							<tr>
+								<td>Affectation du reste</td>
+								<td>x %= y</td>
+								<td>x = x % y</td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+
+				<section>
+					<h2>Comparaison</h2>
+					<table>
+						<tbody>
+							<tr>
+								<th>Nom</th>
+								<th>Opérateur</th>
+							</tr>
+							<tr>
+								<td>égalité simple</td>
+								<td>==</td>
+							</tr>
+							<tr>
+								<td>inégalité simple</td>
+								<td>!=</td>
+							</tr>
+							<tr>
+								<td>égalité stricte</td>
+								<td>===</td>
+							</tr>
+							<tr>
+								<td>inégalité stricte</td>
+								<td>!==</td>
+							</tr>
+							<tr>
+								<td>supérieur stricte</td>
+								<td>></td>
+							</tr>
+							<tr>
+								<td>supérieur ou égal</td>
+								<td>>=</td>
+							</tr>
+							<tr>
+								<td>inférieur strict</td>
+								<td>< </td>
+							</tr>
+							<tr>
+								<td>inférieur ou égal</td>
+								<td><=</td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+
+				<section>
+					<h2>Logiques</h2>
+					<table>
+						<tbody>
+							<tr>
+								<th>Nom</th>
+								<th>Opérateur</th>
+							</tr>
+							<tr>
+								<td>ET</td>
+								<td>&&</td>
+							</tr>
+							<tr>
+								<td>OU</td>
+								<td>||</td>
+							</tr>
+							<tr>
+								<td>NON</td>
+								<td>!</td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+			</section>
+
+			<section>
+				<h2>La Coercition</h2>
+				<p>Le moteur JavaScript change automatiquement le type des données pour essayer de faire l'opération :</p>
+				<pre><code class="hljs" data-trim contenteditable>
+5 + null    // retourne 5         null est convertit en 0
+"5" + null  // retourne "5null"   null est convertit en "null"
+"5" + 2     // retourne 52        2 est convertit en "2"
+"5" - 2     // retourne 3         "5" est convertit en 5
+"5" * "2"   // retourne 10        "5" et "2" sont convertit en 5 et 2
+				</code></pre>
+			</section>
+
+			<section>
+			</section>
+		</div>
+	</div>
+
+	<script src="lib/js/head.min.js"></script>
+	<script src="js/reveal.js"></script>
+
+	<script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				history: true,
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+</body>
+
+</html>
