@@ -43,14 +43,14 @@
 					<li>Types de données</li>
 					<li>Les opérateurs</li>
 					<li>La coercition</li>
-					<li></li>
+					<li>Les objets</li>
 					<li></li>
 					<li></li>
 					<li></li>
 				</ol>
 			</section>
 
-			<section>
+			<section id="presentation">
 				<section>
 					<h2>Présentataion</h2>
 					<ul>
@@ -71,7 +71,7 @@
 				</section>
 			</section>
 
-			<section>
+			<section id="typesdedonnees">
 				<section>
 					<h2>Types de données</h2>
 					<p>En JS tous les types sont des Objets</p>
@@ -105,7 +105,7 @@
 				</section>
 			</section>
 
-			<section>
+			<section id="operateurs">
 				<section>
 					<h2>Les Opérateurs</h2>
 				</section>
@@ -225,7 +225,8 @@
 							</tr>
 							<tr>
 								<td>inférieur strict</td>
-								<td>< </td>
+								<td>
+									< </td>
 							</tr>
 							<tr>
 								<td>inférieur ou égal</td>
@@ -260,7 +261,7 @@
 				</section>
 			</section>
 
-			<section>
+			<section id="coercition">
 				<h2>La Coercition</h2>
 				<p>Le moteur JavaScript change automatiquement le type des données pour essayer de faire l'opération :</p>
 				<pre><code class="hljs" data-trim contenteditable>
@@ -269,6 +270,41 @@
 "5" + 2     // retourne 52        2 est convertit en "2"
 "5" - 2     // retourne 3         "5" est convertit en 5
 "5" * "2"   // retourne 10        "5" et "2" sont convertit en 5 et 2
+				</code></pre>
+			</section>
+
+			<section id="objets">
+				<h2>Les objets</h2>
+				<p> Une entité qui possède des properiétés (variables) qui lui sont attachées.</p>
+				<pre><code>
+// syntaxe litérale
+var voiture = {couleur: "route"};    
+
+// création basée sur un prototype
+var voiture2 = Object.create(voiture); 
+
+// définition d'un constructeur
+function Moto(couleur) {this.couleur = couleur;} 
+// création d'une nouvelle instance.
+var motoRouge = new Moto('rouge'); 
+				</code></pre>
+			</section>
+
+			<section id="prototype">
+				<h2>Les prototypes</h2>
+				<p>Le prototype est un objet partagé par toutes les instances du constructeur</p>
+				<pre><code>
+function Moto(couleur) {this.couleur = couleur;} 
+
+var motoRouge = new Moto('rouge'); 
+
+Moto.prototype.type = 'sportive';
+
+var motoBleu = new Moto('bleu');
+motoBleu.type = 'roadster';
+
+console.log(motoRouge.type); // "sportive"
+console.log(motoBleu.type); // "roadster"
 				</code></pre>
 			</section>
 
