@@ -225,8 +225,7 @@
 							</tr>
 							<tr>
 								<td>inférieur strict</td>
-								<td>
-									< </td>
+								<td>< </td>
 							</tr>
 							<tr>
 								<td>inférieur ou égal</td>
@@ -298,6 +297,8 @@ function Moto(couleur) {this.couleur = couleur;}
 
 var motoRouge = new Moto('rouge'); 
 
+console.log(motoRouge.type); // undefined
+
 Moto.prototype.type = 'sportive';
 
 var motoBleu = new Moto('bleu');
@@ -307,6 +308,19 @@ console.log(motoRouge.type); // "sportive"
 console.log(motoBleu.type); // "roadster"
 				</code></pre>
 			</section>
+
+			<section>
+				
+			</section>
+
+			<section id='ressources'>
+				<h2>Resources</h2>
+				<ul>
+					<li>Mozilla Developer Network: https://developer.mozilla.org</li>
+					<li>airbnb JavaScript Style Guide: https://github.com/airbnb/javascript</li>
+				</ul>
+			</section>
+
 
 			<section>
 			</section>
