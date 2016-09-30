@@ -46,7 +46,7 @@
 					<li>Les objets</li>
 					<li>Les prototypes</li>
 					<li>Les fonctions</li>
-					<li>Le scope</li>
+					<li>Les variables et le scope</li>
 					<li>Les closures</li>
 					<li>Les IIFE</li>
 					<li>Les tableaux</li>
@@ -336,18 +336,41 @@ console.log(motoBleu.type); // "roadster"
 
 				<section>
 					<p>Les fonctions fléchés</p>
-<pre><code>var multipl = function(x) {
+<pre><code>var multiplication = function(x) {
 	return x * x;
 }
-multipl(5); // 25
+multiplication(5); // 25
 
-var multipl2 = x => x * x;
-multipl2(5); // 25
+var multiplication2 = x => x * x;
+multiplication2(5); // 25
 
 var add = (x,y) => x + y;
 add(2,3); //5 </code></pre>
 					<p>pas de redéfinition de 'this'</p>
 				</section>
+			</section>
+
+			<section id="scope">
+				<h2>Les variables et le scope</h2>
+				<p>Toujours utiliser le mode strcit: `'use strict';`.</p>
+				<p>Une variable, déclarée avec le mot-clé `var`, à comme portée le contexte le courant.</p>
+<pre><code>'use strict';
+function fa() { var a = 1; }
+a = 2; // ReferenceError: assignment to undeclared variable a
+
+var b = 5;
+function fb() { 
+	var c = 3;
+	console.log(b, c); // 5 3
+	function fc() { 
+		b = 2; 
+		c = 6;
+	}
+	fc();
+	console.log(b, c); // 2 6
+}
+fb();
+console.log(typeof c); // undefined </code></pre>				
 			</section>
 
 			<section id="closure">
