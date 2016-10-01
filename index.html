@@ -50,7 +50,6 @@
 					<li>Les closures</li>
 					<li>Les IIFE</li>
 					<li>Les tableaux</li>
-					<li>Programmation asynchrone</li>
 					<li>Le DOM</li>
 					<li>Ressources externes</li>
 				</ol>
@@ -294,9 +293,10 @@ var motoRouge = new Moto('rouge'); </code></pre>
 			</section>
 
 			<section id="prototype">
-				<h2>Les prototypes</h2>
-				<p>Le prototype est un objet partagé par toutes les instances du constructeur</p>
-				<pre><code>function Moto(couleur) {this.couleur = couleur;} 
+				<section>
+					<h2>Les prototypes</h2>
+					<p>Le prototype est un objet partagé par toutes les instances du constructeur</p>
+					<pre><code>function Moto(couleur) {this.couleur = couleur;} 
 
 var motoRouge = new Moto('rouge'); 
 
@@ -309,6 +309,12 @@ motoBleu.type = 'roadster';
 
 console.log(motoRouge.type); // "sportive"
 console.log(motoBleu.type); // "roadster"</code></pre>
+				</section>
+				<section>
+					<p>Il ne faut jamais modifier le prototype d'un type de base!</p>
+					<p>La seule exception à cette régle est l'utilisation d'une prothèse d'émulation (polyfill) d'une fonctionnalité ECMAScript2015 (es6) non supporté par un navigateur.</p>
+					<p>Par exemple la méthode Array.find qui n'est pas supporté par IE, on trouve le polyfill de cette fonction sur le site <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/Array/find#Proth%C3%A8se_d%27%C3%A9mulation_(polyfill)">Mozilla Developer Network.</a></p>
+				</section>
 			</section>
 
 			<section id='fonctions'>
