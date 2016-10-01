@@ -281,8 +281,7 @@
 			<section id="objets">
 				<h2>Les objets</h2>
 				<p> Une entité qui possède des properiétés (variables) qui lui sont attachées.</p>
-				<pre><code>
-// syntaxe litérale
+				<pre><code>// syntaxe litérale
 var voiture = {couleur: "route"};    
 
 // création basée sur un prototype
@@ -291,15 +290,13 @@ var voiture2 = Object.create(voiture);
 // définition d'un constructeur
 function Moto(couleur) {this.couleur = couleur;} 
 // création d'une nouvelle instance.
-var motoRouge = new Moto('rouge'); 
-				</code></pre>
+var motoRouge = new Moto('rouge'); </code></pre>
 			</section>
 
 			<section id="prototype">
 				<h2>Les prototypes</h2>
 				<p>Le prototype est un objet partagé par toutes les instances du constructeur</p>
-				<pre><code>
-function Moto(couleur) {this.couleur = couleur;} 
+				<pre><code>function Moto(couleur) {this.couleur = couleur;} 
 
 var motoRouge = new Moto('rouge'); 
 
@@ -311,8 +308,7 @@ var motoBleu = new Moto('bleu');
 motoBleu.type = 'roadster';
 
 console.log(motoRouge.type); // "sportive"
-console.log(motoBleu.type); // "roadster"
-				</code></pre>
+console.log(motoBleu.type); // "roadster"</code></pre>
 			</section>
 
 			<section id='fonctions'>
@@ -320,10 +316,12 @@ console.log(motoBleu.type); // "roadster"
 					<h2>Les Fonctions : First-Class Citizen !</h2>
 					<p>Une fonction est un object, instance de Function</p>
 					<p>Hérite donc de Function.prototype</p>
-					<ul><li>apply(), call(), bind(), toString() et length</li></ul>
+					<ul>
+						<li>apply(), call(), bind(), toString() et length</li>
+					</ul>
 					<p>Comme les autres objets elle peut avoir ses propres propriétés</p>
 				</section>
-				
+
 				<section>
 					<p>Une fonction c'est :</p>
 					<ul>
@@ -336,7 +334,7 @@ console.log(motoBleu.type); // "roadster"
 
 				<section>
 					<p>Les fonctions fléchés</p>
-<pre><code>var multiplication = function(x) {
+					<pre><code>var multiplication = function(x) {
 	return x * x;
 }
 multiplication(5); // 25
@@ -354,7 +352,7 @@ add(2,3); //5 </code></pre>
 				<h2>Les variables et le scope</h2>
 				<p>Toujours utiliser le mode strcit: `'use strict';`.</p>
 				<p>Une variable, déclarée avec le mot-clé `var`, à comme portée le contexte le courant.</p>
-<pre><code>'use strict';
+				<pre><code>'use strict';
 function fa() { var a = 1; }
 a = 2; // ReferenceError: assignment to undeclared variable a
 
@@ -370,15 +368,68 @@ function fb() {
 	console.log(b, c); // 2 6
 }
 fb();
-console.log(typeof c); // undefined </code></pre>				
+console.log(typeof c); // undefined </code></pre>
 			</section>
 
 			<section id="closure">
 				<h2>Les closures</h2>
+				<pre><code>function creerAdditionneur(a) {
+  return function(b) {
+    return a + b;
+  }
+}
+var additionner5 = creerAdditionneur(5);
+var additionner20 = creerAdditionneur(20);
+additionner5(6); // ?
+additionner20(7); // ?</code></pre>
+				<p>Une fermeture permet d'associer des données (l'environnement) avec une fonction qui agit sur ces données.</p>
+				<p>Peut également servir à encapsuler des variables pour les rendre privées.</p>
+				<p>Attention aux perfs!</p>
 			</section>
 
 			<section id="iife">
-				<h2>Les IIFE</h2>
+				<section>
+					<h2>Les expression de fonction immédiatement appelée</h2>
+					<p>Il s'agit d'une fonction qui est appelée dés sa définition</p>
+					<pre><code>function creerAdditionneur(a) {
+var a = "coucou";
+var b = "monde";
+
+// IIFE
+(function(x, y) {
+  console.log(x + " " + y);
+})(a, b);
+// coucou monde
+				</code></pre>
+				</section>
+				<section>
+					<p>Notation utile car elle permet de "modulariser" son code.</p>
+					<pre><code class="javascript"> // moteur.js
+(function(exports) {
+  "use strict";
+  function Moteur(carburant) { this.carburant = carburant || 'diesel'; }
+  exports.Moteur = Moteur;
+})(this);</code></pre>
+					<pre><code class="javascript"> // moto.js
+(function(exports) {
+  "use strict";
+  function Moto(couleur) {this.couleur = couleur;} 
+  exports.Moto = Moto;
+  Moto.prototype = new Moteur();
+})(this);</code></pre>
+					<pre><code class="html"> // index.html
+&lt;body&gt;
+&lt;script src="moteur.js">>&lt;/script&gt;
+&lt;script src="moto.js">>&lt;/script&gt;
+&lt;script&gt;
+  var motoRouge = new Moto(rouge);
+  console.log(motoRouge.coleur) // rouge
+  console.log(motoRouge.carburant) // diesel</code></pre>						
+				</section>
+			</section>
+
+			<section id="tableaux">
+				<h2>Les tableaux</h2>
 			</section>
 
 			<section id='ressources'>
@@ -389,8 +440,11 @@ console.log(typeof c); // undefined </code></pre>
 				</ul>
 			</section>
 
+			<section>
+			</section>
 
 			<section>
+				<a href="?print-pdf">Impression (nécessite Chrome)</a>
 			</section>
 		</div>
 	</div>
