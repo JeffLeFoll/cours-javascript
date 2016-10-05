@@ -2,19 +2,19 @@
 (function (exports) {
     'use strict';
     function Molkky() {
-        this.pointage = 0;
+        this.score = 0;
     };
 
     exports.Molkky = Molkky;
 
-    Molkky.prototype.metsAJourLePointagePourLeLancer = function (...quilles) {
+    Molkky.prototype.metsAJourLeScorePourLeLancer = function (...quilles) {
         if (this.uneSeuleQuilleEstTombee(quilles)) {
-            this.pointage += quilles[0];
+            this.score += quilles[0];
         } else {
-            this.pointage += this.nombreDeQuilles(quilles);
+            this.score += this.nombreDeQuilles(quilles);
         }
 
-        this.lePointageRedescendA25SIlDepasse50();
+        this.leScoreRedescendA25SIlDepasse50();
     };
 
     Molkky.prototype.uneSeuleQuilleEstTombee = function (quilles) {
@@ -26,12 +26,12 @@
     };
 
     Molkky.prototype.gagne = function () {
-        return this.pointage === 50;
+        return this.score === 50;
     };
 
-    Molkky.prototype.lePointageRedescendA25SIlDepasse50 = function () {
-        if (this.pointage > 50) {
-            this.pointage = 25;
+    Molkky.prototype.leScoreRedescendA25SIlDepasse50 = function () {
+        if (this.score > 50) {
+            this.score = 25;
         }
     };
 
